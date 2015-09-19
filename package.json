@@ -8,6 +8,7 @@
     "bundle": "./node_modules/.bin/react-native-webpack-server bundle"
   },
   "dependencies": {
+    "parse": "^1.6.1",
     "react-native": "^0.11.0",
     "react-redux": "^2.1.2",
     "redux": "^3.0.0",

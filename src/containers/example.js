@@ -3,7 +3,10 @@
 import React from 'react-native'
 import { connect, dispatch } from 'react-redux/native'
 import { test } from '../actions/example'
+import { getUserAsync, loginAsync, logoutAsync } from '../actions/user'
 import DumbComponent from '../components/DumbComponent'
+import UserComponent from '../components/UserComponent'
+import Parse  from '../lib/parse'
 
 let {
   StyleSheet,
@@ -12,7 +15,8 @@ let {
 } = React
 
 function select(state) {
-  return { foo: state.foo }
+  return state
+  // return { foo: state.foo }
 }
 
 @connect(state => {
@@ -21,10 +25,12 @@ function select(state) {
 export default class ExampleApp extends React.Component {
   constructor(props) {
     super(props)
+    const { user, dispatch } = props
+    dispatch(getUserAsync(user))
   }
 
   render() {
-    const { foo, dispatch } = this.props
+    const { foo, user, dispatch } = this.props
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -40,6 +46,12 @@ export default class ExampleApp extends React.Component {
         <DumbComponent
           foo={foo}
           test={(text='hi') => dispatch(test(text))}
+        />
+        <UserComponent
+          user={user}
+          getUser={() => dispatch(getUserAsync(user))}
+          login={(user, pass) => dispatch(loginAsync(user, pass))}
+          logout={() => dispatch(logoutAsync(user))}
         />
       </View>
     )

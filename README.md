@@ -25,6 +25,10 @@ Cmd+R inside Xcode to run the app in the iOS simulator. On first run, you'll lik
 
 I'm using the starter to familiarize myself with Flux using Redux and the best practices I know of.
 
+## Setting up with Parse
+
+Copy `./src/secrets.example.js` to `./src/secrets.js` and add your application id and javascript key from your Parse app.
+
 ## Build for release
 
 ```bash
