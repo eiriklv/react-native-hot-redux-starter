@@ -30,7 +30,7 @@ export default class UserComponent extends React.Component {
     // this should be some user who exists in your Parse app
     // obviously in a real application you'd take this from
     // user input
-    this.props.login('a@p.c', 'pass')
+    this.props.login('a@p.co', 'pass')
   }
 
   handleLogout(e) {
